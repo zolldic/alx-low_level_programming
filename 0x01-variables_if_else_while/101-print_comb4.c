@@ -4,7 +4,7 @@
 * main - a program that prints all
 * possible different combinations of three digits.
 *
-* Returns: always (0) on success
+* Return: always (0) on success
 */
 
 int main(void)
