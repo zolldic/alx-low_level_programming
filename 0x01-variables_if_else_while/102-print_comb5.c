@@ -17,7 +17,7 @@ int main(void)
 
 	loop = 0;
 
-	while (loop < 1)
+	while (loop < 999)
 	{
 		first = 48;
 		while (first < 53)
