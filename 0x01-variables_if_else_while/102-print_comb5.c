@@ -17,10 +17,10 @@ int main(void)
 
 	loop = 0;
 
-	while (loop < 999)
+	while (loop < 1)
 	{
 		first = 48;
-		while (first < 58)
+		while (first < 53)
 		{
 			second = 48;
 			while (second < 58)
@@ -28,7 +28,7 @@ int main(void)
 				third = first;
 				while (third < 58)
 				{
-					forth = second + 1;
+					forth = second;
 					while (forth < 58)
 					{
 						putchar(first);
