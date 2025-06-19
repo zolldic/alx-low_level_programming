@@ -1,7 +1,3 @@
-Here's a well-structured README document based on the provided HTML content, highlighting the project's goals, requirements, and tasks:
-
----
-
 # C - Functions, Nested Loops  
 **Project ID:** `0x02`  
 **Curriculum:** SE Foundations  
