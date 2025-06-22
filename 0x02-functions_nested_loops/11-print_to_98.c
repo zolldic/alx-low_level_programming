@@ -18,22 +18,22 @@ void print_to_98(int n)
 				printf("%d", n);
 				break;
 			}
-			else 
+			else
 				printf("%d, ", n);
 			n--;
 		}
-		else 
+		else
 		{
 			if (n == 98)
 			{
 				printf("%d", n);
 				break;
 			}
-			else 
+			else
 				printf("%d, ", n);
 			n++;
 		}
-		
+
 	}
 	printf("\n");
 }
