@@ -5,7 +5,7 @@
 * Return: Always (0) on success
 */
 
-void main(void)
+int main(void)
 {
 	unsigned long int next, sum = 0, a = 1, b = 2;
 
@@ -22,4 +22,5 @@ void main(void)
 			break;
 	}
 	printf("%ld\n", sum);
+	return (0);
 }
