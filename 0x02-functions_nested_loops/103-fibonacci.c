@@ -7,7 +7,7 @@
 
 int main(void)
 {
-	unsigned long int next, sum = 0, a = 1, b = 2;
+	unsigned long int next, sum = 0, a = 0, b = 1;
 
 	while (1)
 	{
