@@ -7,10 +7,10 @@
 
 int main(void)
 {
-	double sum, a = 1, b = 2;
+	long double sum, a = 1, b = 2;
 	int x = 3;
 
-	printf("%.f, %.f, ", a, b);
+	printf("%.Lf, %.Lf, ", a, b);
 
 	while (x <= 98)
 	{
@@ -19,9 +19,9 @@ int main(void)
 		b = sum;
 
 		if (x == 98)
-			printf("%.f", sum);
+			printf("%.Lf", sum);
 		else
-			printf("%.f, ", sum);
+			printf("%.Lf, ", sum);
 		x++;
 	}
 
