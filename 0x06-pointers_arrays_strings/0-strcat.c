@@ -18,7 +18,6 @@ char *_strcat(char *dest, char *src)
 	for (idx = 0; src[idx] != '\0'; idx++)
 		dest[dest_len++] = src[idx];
 
-	dest[idx + dest_len] = '\0';
-
+	dest[-1] = '\0';
 	return (dest);
 }
