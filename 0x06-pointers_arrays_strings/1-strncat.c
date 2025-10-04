@@ -17,7 +17,7 @@ char *_strncat(char *dest, char *src, int n)
 		dest_len++;
 	
 
-	for (idx = 0; idx <= n; idx++)
+	for (idx = 0; idx < n; idx++)
 	{
 		if (idx == sizeof(dest))
 			break;
