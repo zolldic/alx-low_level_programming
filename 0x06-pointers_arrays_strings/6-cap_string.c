@@ -19,6 +19,7 @@ char *cap_string(char *str)
 		if (str[x] >= 97 && str[x] <= 122)
 		{
 			if (
+				x == 0 ||
 				str[x - 1] == '\n' ||
 				str[x - 1] == 32 ||
 				str[x - 1] == '.' ||
