@@ -15,9 +15,6 @@ char *_strchr(char *s, char c)
 	char *ptr = NULL;
 	int x;
 	
-	if (c == '\0')
-		return (0x00);
-
 	for (x = 0; s[x]; x++)
 	{
 		if (s[x] == c)
@@ -26,6 +23,9 @@ char *_strchr(char *s, char c)
 			break;
 		}
 	}
-	
+
+	if (c == '\0')
+		ptr = &s[x];
+
 	return (ptr);
 }
