@@ -22,6 +22,5 @@ int int_index(int *array, int size, int (*cmp)(int))
 		if (element && element != 0)
 			return (x);
 	}
-		return (x);
 	return (-1);
 }
