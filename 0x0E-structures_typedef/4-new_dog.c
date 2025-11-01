@@ -2,6 +2,22 @@
 #include <string.h>
 #include "dog.h"
 
+
+/**
+* _strlen - calculate string length
+* @str: a string
+* Return: length of a string
+*/
+
+int _strlen(char *str)
+{
+	int x = 0;
+
+	while (str[x] != '\0')
+		x++;
+	return (x);
+}
+
 /**
 * new_dog - creates a new dog
 * @name: name of the dog
@@ -12,8 +28,8 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *ptr;
-	int name_len = strlen(name);
-	int owner_len = strlen(owner);
+	int name_len = _strlen(name);
+	int owner_len = _strlen(owner);
 
 	ptr = (dog_t *) malloc(sizeof(dog_t));
 	if (!ptr)
