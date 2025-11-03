@@ -24,9 +24,6 @@ void print_all(const char * const format, ...)
 		{'s', print_string}
 	};
 
-	if (!format)
-		return;
-
 	va_start(arguments, format);
 
 	x = 0;
@@ -79,7 +76,9 @@ void print_float (va_list args)
 void print_string(va_list args)
 {
 	if (!args)
+	{
 		printf("(nil)");
-	else
-		printf("%s", va_arg(args, char *));
+		return;
+	}
+	printf("%s", va_arg(args, char *));
 }
