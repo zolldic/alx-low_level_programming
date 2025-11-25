@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+int _strlen(const char *s);
+
 /**
 * add_node - adds a new node at the beginning of a list_t list
 * @head: double pointer to the head of the list
@@ -25,4 +27,20 @@ list_t *add_node(list_t **head, const char *str)
 	new->next = *head;
 	*head = new;
 	return (new);
+}
+
+/**
+* _strlen - calculates the length of a string
+* @s: pointer to the string
+*
+* Return: the length of the string
+*/
+int _strlen(const char *s)
+{
+	int x = 0;
+
+	while (*s++)
+		x++;
+
+	return (x);
 }
