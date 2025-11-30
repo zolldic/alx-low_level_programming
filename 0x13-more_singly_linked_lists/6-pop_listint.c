@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdlib.h>
 
 /**
 * pop_listint - delete the head node of a listint_t list
@@ -10,6 +11,9 @@ int pop_listint(listint_t **head)
 {
 	listint_t *tmp;
 	int n;
+
+	if (!head)
+		exit(0);
 
 	n = (*head)->n;
 	tmp = (*head)->next;
