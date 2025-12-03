@@ -24,8 +24,8 @@ int main(int ac, char **av)
 		exit(97);
 	}
 
-	src = open(av[1], O_RDONLY);
-	if (access(av[1], F_OK | R_OK) == -1)
+	src = open(av[1], O_RDONLY | F_OK | R_OK);
+	if (src == -1)
 	{
 
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
