@@ -1,9 +1,10 @@
+#include <asm-generic/errno-base.h>
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include <sys/stat.h>
+#include <errno.h>
 
 void print_error(int code, char *arg)
 {
@@ -33,9 +34,6 @@ int main(int ac, char **av)
 	int src, dist;
 	int r_count;
 	char *buffer;
-	
-	struct stat dist_info;
-
 
 	/**
 	* src: if can't react, expected exit (98)
@@ -51,13 +49,14 @@ int main(int ac, char **av)
 		print_error(98, av[1]);
 
 	dist = open(av[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
-	stat(av[2], &dist_info);
-	if (dist_info.st_mode != 0)
-		return (0);
 
 	if (dist == -1)
+	{
+		if (errno == EACCES)
+			return (0);
+	
 		print_error(99, av[2]);
-
+	}
 
 	buffer = (char *) malloc(sizeof(char) * 1024);
 	if (!buffer)
