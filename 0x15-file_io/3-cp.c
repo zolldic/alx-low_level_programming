@@ -3,6 +3,22 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
+#include <sys/stat.h>
+
+void print_error(int code, char *arg)
+{
+	(void) arg;
+
+	if (code == 97)
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+
+	if (code == 98)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arg);
+	if (code == 99)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arg);
+
+	exit(code);
+}
 
 /**
 * main - Entry point
@@ -11,33 +27,37 @@
 * Return: Always (0) on success
 */
 
+
 int main(int ac, char **av)
 {
 	int src, dist;
 	int r_count;
-
 	char *buffer;
+	
+	struct stat dist_info;
+
+
+	/**
+	* src: if can't react, expected exit (98)
+	* dist: if cant write expected exit (99)
+	* read 1,024 byte at a time
+	*/
 
 	if (ac < 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		print_error(97, NULL);
 
 	src = open(av[1], O_RDONLY | F_OK | R_OK);
 	if (src == -1)
-	{
-
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+		print_error(98, av[1]);
 
 	dist = open(av[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
+	stat(av[2], &dist_info);
+	if (dist_info.st_mode != 0)
+		return (0);
+
 	if (dist == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
+		print_error(99, av[2]);
+
 
 	buffer = (char *) malloc(sizeof(char) * 1024);
 	if (!buffer)
@@ -59,10 +79,11 @@ int main(int ac, char **av)
 
 	if (close(dist) != 0)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dist);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
 		exit(100);
 	}
 
+	
 	return (0);
 }
 
