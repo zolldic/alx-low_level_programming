@@ -48,15 +48,9 @@ int main(int ac, char **av)
 	if (src == -1)
 		print_error(98, av[1]);
 
-	dist = open(av[2], O_CREAT | O_TRUNC | O_RDWR, 0664);
-
+	dist = open(av[2], O_CREAT | O_TRUNC | O_RDWR | W_OK, 0664);
 	if (dist == -1)
-	{
-		if (errno == EACCES)
-			return (0);
-	
 		print_error(99, av[2]);
-	}
 
 	buffer = (char *) malloc(sizeof(char) * 1024);
 	if (!buffer)
