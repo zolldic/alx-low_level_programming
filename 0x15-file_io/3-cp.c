@@ -78,8 +78,6 @@ int main(int ac, char **av)
 		exit(100);
 	}
 
-	
-	printf("\ntimes write to buffer: %d\n", count);
 	return (0);
 }
 
