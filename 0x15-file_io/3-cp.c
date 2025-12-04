@@ -59,7 +59,9 @@ int main(int ac, char **av)
 	while (1)
 	{
 		r_count = read(src, buffer, 1024);
-		write(dist, buffer, r_count);
+		if (r_count == 1024)
+			write(dist, buffer, r_count);
+	
 		if (r_count == 0)
 			break;
 	}
@@ -77,6 +79,7 @@ int main(int ac, char **av)
 	}
 
 	
+	printf("\ntimes write to buffer: %d\n", count);
 	return (0);
 }
 
