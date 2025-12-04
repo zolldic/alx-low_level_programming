@@ -4,7 +4,12 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#include <errno.h>
+
+/**
+* print_error - centerlize funciton to handle errors
+* @code: integer error code
+* @arg: erorr message argument
+*/
 
 void print_error(int code, char *arg)
 {
