@@ -51,29 +51,25 @@ int main(int ac, char **av)
 	if (dist == -1)
 		print_error(99, av[2]);
 
-	buffer = (char *) malloc(sizeof(char) * 1024);
-	if (!buffer)
-		exit(-1);
-
-	while (1)
+	while ((r_count = read(src, buffer, 1024)) > 0)
 	{
-		r_count = read(src, buffer, 1024);
-		if (r_count == 1024)
-			write(dist, buffer, r_count);
-	
-		if (r_count == 0)
-			break;
+		w_count = write(dist, buffer, r_count);
+		if (w_count == -1)
+			print_error(99, av[2]);
 	}
 
-	if (close(src) != 0)
+	if (r_count == -1)
+		print_error(98, av[1]);
+
+	if (close(src) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
 		exit(100);
 	}
 
-	if (close(dist) != 0)
+	if (close(dist) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dist);
 		exit(100);
 	}
 
