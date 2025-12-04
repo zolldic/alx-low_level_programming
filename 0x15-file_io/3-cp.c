@@ -40,20 +40,14 @@ int main(int ac, char **av)
 	ssize_t r_count, w_count;
 	char buffer[1024];
 
-	/**
-	* src: if can't react, expected exit (98)
-	* dist: if cant write expected exit (99)
-	* read 1,024 byte at a time
-	*/
-
-	if (ac < 3)
+	if (ac != 3)
 		print_error(97, NULL);
 
-	src = open(av[1], O_RDONLY | F_OK | R_OK);
+	src = open(av[1], O_RDONLY);
 	if (src == -1)
 		print_error(98, av[1]);
 
-	dist = open(av[2], O_CREAT | O_TRUNC | O_RDWR | W_OK, 0664);
+	dist = open(av[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (dist == -1)
 		print_error(99, av[2]);
 
