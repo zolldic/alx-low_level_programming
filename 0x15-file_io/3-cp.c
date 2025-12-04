@@ -37,8 +37,8 @@ void print_error(int code, char *arg)
 int main(int ac, char **av)
 {
 	int src, dist;
-	int r_count;
-	char *buffer;
+	ssize_t r_count, w_count;
+	char buffer[1024];
 
 	/**
 	* src: if can't react, expected exit (98)
