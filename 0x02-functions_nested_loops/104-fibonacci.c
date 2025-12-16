@@ -9,7 +9,7 @@ int main(void)
 	long double sum, a = 1, b = 2;
 	int x = 3;
 
-	printf("%.LF, %.LF, ", a, b);
+	printf("%.Lf, %.Lf, ", a, b);
 
 	while (x <= 98)
 	{
@@ -18,9 +18,9 @@ int main(void)
 		b = sum;
 
 		if (x == 98)
-			printf("%.LF", sum);
+			printf("%.Lf", sum);
 		else
-			printf("%.LF, ", sum);
+			printf("%.Lf, ", sum);
 		x++;
 	}
 
