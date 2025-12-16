@@ -9,47 +9,41 @@
 
 int main(void)
 {
-	int first;
-	int second;
-	int third;
-	int forth;
-	int loop;
+	int first, second, third, forth;
 
-	loop = 0;
-
-	while (loop < 999)
+	first = 0;
+	while (first < 10)
 	{
-		first = 48;
-		while (first < 53)
+		second = 0;
+		while (second < 10)
 		{
-			second = 48;
-			while (second < 58)
+			third = first;
+			while (third < 10)
 			{
-				third = first;
-				while (third < 58)
+				forth = second + 1;
+				while (forth < 10)
 				{
-					forth = second;
-					while (forth < 58)
+					putchar(first + '0');
+					putchar(second + '0');
+					putchar(' ');
+					putchar(third + '0');
+					putchar(forth + '0');
+
+					if (!(first == 9 &&
+						second == 8 &&
+						third == 9 &&
+						forth == 9))
 					{
-						putchar(first);
-						putchar(second);
+						putchar(',');
 						putchar(' ');
-						putchar(third);
-						putchar(forth);
-						if ((first != 57) || (second != 56))
-						{
-							putchar(',');
-							putchar(' ');
-						}
-						forth++;
 					}
-					third++;
+					forth++;
 				}
-				second++;
+				third++;
 			}
-			first++;
+			second++;
 		}
-		loop++;
+		first++;
 	}
 
 	putchar(10);
