@@ -4,13 +4,12 @@
 * main -  program that prints the first 98  Fibonacci numbers
 * Return: Always (0) on success
 */
-
 int main(void)
 {
 	long double sum, a = 1, b = 2;
 	int x = 3;
 
-	printf("%.Lf, %.Lf, ", a, b);
+	printf("%.LF, %.LF, ", a, b);
 
 	while (x <= 98)
 	{
@@ -19,9 +18,9 @@ int main(void)
 		b = sum;
 
 		if (x == 98)
-			printf("%.Lf", sum);
+			printf("%.LF", sum);
 		else
-			printf("%.Lf, ", sum);
+			printf("%.LF, ", sum);
 		x++;
 	}
 
